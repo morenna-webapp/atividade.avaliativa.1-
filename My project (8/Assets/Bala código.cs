@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+Using UnityEngine;
 
-public class Balacódigo : MonoBehaviour
+public class BalaCodigo : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float velocidade = 20f;
+    public float tempoVida = 3f; // 
+
     void Start()
     {
         
+        Destroy(gameObject, tempoVida);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+        transform.Translate(Vector3.forward * velocidade * Time.deltaTime);
+    }
+
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        
+        Destroy(gameObject);
     }
 }
+
+
